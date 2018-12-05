@@ -13,6 +13,8 @@ namespace XYFeedbackV3
         internal double TraLoc, LatLoc;
         Semaphore USB6008_Mutex = new Semaphore(1, 1);//I know, it is not a mutex, but had some weird issues using mutex across multiple threads so this is my solution to use a sempafore as a mutex
 
+        string Device;
+
         private NationalInstruments.DAQmx.Task USB6008_AITask;
         private NationalInstruments.DAQmx.Task USB6008_AOTask;
         private NationalInstruments.DAQmx.Task USB6008_DOTask;
@@ -24,6 +26,8 @@ namespace XYFeedbackV3
         {
             TraLoc = 0;
             LatLoc = 0;
+            Device = "dev2";
+            USB6008_Mutex = new Semaphore(1, 1);//I know, it is not a mutex, but had some weird issues using mutex across multiple threads so this is my solution to use a sempafore as a mutex
             Setup_USB6008();
         }
 
@@ -33,13 +37,13 @@ namespace XYFeedbackV3
             double[] data1 = { 0, 0 };
             try
             {
-                USB6008_1_Mutex.WaitOne();
+                USB6008_Mutex.WaitOne();
                 data1 = USB6008_Reader.ReadSingleSample();
-                USB6008_1_Mutex.Release();
+                USB6008_Mutex.Release();
             }
             catch (NationalInstruments.DAQmx.DaqException ex)
             {
-                onAlarm("usb6008 1 read error" + ex.Message.ToString());
+                Console.WriteLine("usb6008 1 read error" + ex.Message.ToString());
                 //error has occured need to reset daq
                 Setup_USB6008();
                 Thread.Sleep(50);
@@ -53,7 +57,7 @@ namespace XYFeedbackV3
         {
 
             //Resets and configures the NI USB6008 Daq boards
-            Device dev = DaqSystem.Local.LoadDevice("dev3");//added to reset the DAQ boards if they fail to comunicate giving error code 50405
+            Device dev = DaqSystem.Local.LoadDevice(Device);//added to reset the DAQ boards if they fail to comunicate giving error code 50405
             dev.Reset();
             AIChannel TransverseChannel, LateralChannel;
             try
@@ -62,7 +66,7 @@ namespace XYFeedbackV3
                 USB6008_AITask = new NationalInstruments.DAQmx.Task();
 
                 TransverseChannel = USB6008_AITask.AIChannels.CreateVoltageChannel(
-                    "dev3/ai0",  //Physical name of channel
+                    Device + "/ai0",  //Physical name of channel
                     "TransverseChannel",  //The name to associate with this channel
                     AITerminalConfiguration.Differential,  //Differential Wiring
                     -10,  //-10v minimum
@@ -70,23 +74,23 @@ namespace XYFeedbackV3
                     AIVoltageUnits.Volts  //Use volts
                     );
                 LateralChannel = USB6008_AITask.AIChannels.CreateVoltageChannel(
-                   "dev3/ai1",  //Physical name of channel
+                   Device + "/ai1",  //Physical name of channel
                    "LateralChannel",  //The name to associate with this channel
                    AITerminalConfiguration.Differential,  //Differential Wiring
                    -10,  //-0.1v minimum
                    10,  //10v maximum
                    AIVoltageUnits.Volts  //Use volts
                    );
-                USB6008_Reader = new AnalogMultiChannelReader(USB6008_1_AITask.Stream);
+                USB6008_Reader = new AnalogMultiChannelReader(USB6008_AITask.Stream);
                 ////////////////////////////////////////////////////////////
                 ////////////////////////////////////////////////////////////
                 USB6008_DOTask = new NationalInstruments.DAQmx.Task();
-                USB6008_DOTask.DOChannels.CreateChannel("dev3/port0", "port0", ChannelLineGrouping.OneChannelForAllLines);
+                USB6008_DOTask.DOChannels.CreateChannel(Device + "/port0", "port0", ChannelLineGrouping.OneChannelForAllLines);
                 USB6008_Digital_Writter = new DigitalSingleChannelWriter(USB6008_DOTask.Stream);
             }
             catch (NationalInstruments.DAQmx.DaqException e)
             {
-                MessageBox.Show("Error?\n\n" + e.ToString(), "NI USB 6008 1 Error");
+                Console.WriteLine("Error?\n\n" + e.ToString(), "NI USB 6008 1 Error");
             }
         }
     }

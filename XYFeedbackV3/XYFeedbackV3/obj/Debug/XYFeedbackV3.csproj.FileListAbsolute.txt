@@ -1,1 +1,12 @@
 C:\Users\VUWAL\Documents\Visual Studio 2015\Projects\XYFeedbackV3\XYFeedbackV3\XYFeedbackV3\bin\Debug\XYFeedbackV3.exe.config
+C:\Users\VUWAL\Documents\Visual Studio 2015\Projects\XYFeedbackV3\XYFeedbackV3\XYFeedbackV3\bin\Debug\XYFeedbackV3.exe
+C:\Users\VUWAL\Documents\Visual Studio 2015\Projects\XYFeedbackV3\XYFeedbackV3\XYFeedbackV3\bin\Debug\XYFeedbackV3.pdb
+C:\Users\VUWAL\Documents\Visual Studio 2015\Projects\XYFeedbackV3\XYFeedbackV3\XYFeedbackV3\bin\Debug\NationalInstruments.DAQmx.dll
+C:\Users\VUWAL\Documents\Visual Studio 2015\Projects\XYFeedbackV3\XYFeedbackV3\XYFeedbackV3\bin\Debug\NationalInstruments.Common.dll
+C:\Users\VUWAL\Documents\Visual Studio 2015\Projects\XYFeedbackV3\XYFeedbackV3\XYFeedbackV3\bin\Debug\NationalInstruments.NiLmClientDLL.dll
+C:\Users\VUWAL\Documents\Visual Studio 2015\Projects\XYFeedbackV3\XYFeedbackV3\XYFeedbackV3\bin\Debug\NationalInstruments.MStudioCLM.dll
+C:\Users\VUWAL\Documents\Visual Studio 2015\Projects\XYFeedbackV3\XYFeedbackV3\XYFeedbackV3\bin\Debug\NationalInstruments.DAQmx.xml
+C:\Users\VUWAL\Documents\Visual Studio 2015\Projects\XYFeedbackV3\XYFeedbackV3\XYFeedbackV3\bin\Debug\NationalInstruments.Common.xml
+C:\Users\VUWAL\Documents\Visual Studio 2015\Projects\XYFeedbackV3\XYFeedbackV3\XYFeedbackV3\obj\Debug\XYFeedbackV3.csprojResolveAssemblyReference.cache
+C:\Users\VUWAL\Documents\Visual Studio 2015\Projects\XYFeedbackV3\XYFeedbackV3\XYFeedbackV3\obj\Debug\XYFeedbackV3.exe
+C:\Users\VUWAL\Documents\Visual Studio 2015\Projects\XYFeedbackV3\XYFeedbackV3\XYFeedbackV3\obj\Debug\XYFeedbackV3.pdb

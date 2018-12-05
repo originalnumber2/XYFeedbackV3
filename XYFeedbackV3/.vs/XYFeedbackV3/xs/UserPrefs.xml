@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{92A52A46-586E-4F49-AC5C-732E7EC59DE3}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="XYFeedbackV3/NIDaq.cs">
+    <Files>
+      <File FileName="XYFeedbackV3/NIDaq.cs" Line="98" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.XYFeedbackV3 PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
